@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running lint checks for both FE and BE projects..."
+
+# execute lint
+pnpm turbo run lint
+EXIT_CODE=$?
+
+# lint check
+if [ $EXIT_CODE -ne 0 ]; then
+  echo "Lint errors detected. Please fix them before git committing."
+  exit 1
+fi
+
+echo "Lint checks passed! Proceeding with commit."

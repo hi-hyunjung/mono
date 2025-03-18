@@ -1,0 +1,42 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "vite-end.d.ts", "!.vite/**", ".next/**", "next-env.d.ts", "!.next/cache/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "fe#dev": {
+      "dependsOn": ["fe#lint", "^lint"],
+      "cache": false,
+      "persistent": true
+    },
+    "api#dev": {
+      "dependsOn": ["api#lint", "^lint"],
+      "cache": false,
+      "persistent": true
+    },
+    "web#dev": {
+      "dependsOn": ["web#lint", "^lint"],
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
+    "fe#lint": {
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
+    "api#lint": {
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
+    "web#lint": {
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
+    "test": {}
+  }
+}
