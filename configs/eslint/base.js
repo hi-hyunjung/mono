@@ -13,9 +13,9 @@ module.exports = tseslint.config(
     },
     extends: [
       eslint.configs.recommended,
-      tseslint.configs.recommended,
-      tseslint.configs.recommendedTypeChecked,
-      tseslint.configs.stylisticTypeChecked,
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
     ],
     rules: {
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
