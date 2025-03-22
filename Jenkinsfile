@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  tools {
+    nodejs 'mono-22.14.0'
+  }
+
   stages {
     stage('Install') {
       steps {
