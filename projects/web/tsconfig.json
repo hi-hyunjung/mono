@@ -1,6 +1,7 @@
 {
   "extends": "@config/tsconfig/base.json",
   "compilerOptions": {
+    "types": [],
     "lib": ["dom", "dom.iterable", "es2022"],
     "jsx": "preserve",
     "baseUrl": ".",
@@ -15,6 +16,6 @@
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "module": "esnext"
   },
-  "include": [".next/types/**/*.ts", "."],
+  "include": [".next/types/**/*.ts", ".", "../../configs/eslint"],
   "exclude": ["node_modules", "./*.js", "./*.mjs", "coverage"]
 }

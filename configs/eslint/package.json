@@ -13,6 +13,7 @@
     "./react": "./react.js",
     "./nextjs": "./nextjs.js"
   },
+  "types": "type.d.ts",
   "prettier": "@config/prettier-config",
   "devDependencies": {
     "@config/prettier-config": "workspace:^",
@@ -24,7 +25,12 @@
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^15.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.27.0",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-config-turbo": "^2.4.4",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",

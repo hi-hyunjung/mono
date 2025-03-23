@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
   },
   "prettier": "@config/prettier-config",
   "eslintConfig": {
@@ -29,13 +30,12 @@
     "@config/eslint-config": "workspace:^",
     "@config/prettier-config": "workspace:^",
     "@config/tsconfig": "workspace:^",
-    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.2.2",
+    "jiti": "^2.4.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
