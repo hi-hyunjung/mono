@@ -5,8 +5,15 @@ services:
     build:
       context: ../
       dockerfile: docker/api.Dockerfile
+      args:
+        - TURBO_TOKEN=TURBO_TOKEN
+    restart: always
     ports:
       - "3005:3005"
+    environment:
+      - BASE_URL=http://api:3003
+      - APP_PORT=3005
+      - APP_ADDRESS=api
     container_name: api
     networks:
       - app_net
@@ -15,25 +22,30 @@ services:
     build:
       context: ../
       dockerfile: docker/web.Dockerfile
+    restart: always
     ports:
-      - "3007:3007"
+      - "3003:3003"
     container_name: web
+    environment:
+      - NEXT_PUBLIC_API_BASE_URL=http://localhost:3005
+      - NEXT_PUBLIC_MAX_DAYS=90
+      - SESSION_PASSWORD=sessionpasswordsessionpasswordsessionpassword
     depends_on:
       - api
     networks:
       - app_net
 
-  fe:
-    build:
-      context: ../
-      dockerfile: docker/fe.Dockerfile
-    ports:
-      - "3006:3006"
-    container_name: fe
-    depends_on:
-      - api
-    networks:
-      - app_net
+  # fe:
+  #   build:
+  #     context: ../
+  #     dockerfile: docker/fe.Dockerfile
+  #   ports:
+  #     - "3006:3006"
+  #   container_name: fe
+  #   depends_on:
+  #     - api
+  #   networks:
+  #     - app_net
 
 networks:
   app_net:
