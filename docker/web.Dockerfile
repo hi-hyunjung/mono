@@ -46,7 +46,6 @@ USER nextjs
 
 COPY --from=installer /app/projects/web/next.config.mjs .
 COPY --from=installer /app/projects/web/package.json .
-COPY --from=installer /app/projects/web/.env.production ./projects/web/.env.production
 
 COPY --from=installer --chown=nextjs:nodejs /app/projects/web/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/projects/web/.next/static ./projects/web/.next/static
