@@ -43,7 +43,7 @@ services:
       - app_net
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.web.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.web.rule=PathPrefix(`/web`)"
       - "traefik.http.routers.web.entrypoints=web"
       - "traefik.http.services.web.loadbalancer.server.port=3003"
 
