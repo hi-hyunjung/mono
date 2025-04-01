@@ -52,6 +52,8 @@ COPY --from=installer --chown=nextjs:nodejs /app/projects/web/.next/static ./pro
 COPY --from=installer --chown=nextjs:nodejs /app/projects/web/public ./projects/web/public
 COPY --from=installer --chown=nextjs:nodejs /app/projects/web/entrypoint.sh ./projects/web/entrypoint.sh
 
+RUN chmod +x ./projects/web/entrypoint.sh
+
 ENTRYPOINT [ "projects/web/entrypoint.sh" ]
 
 CMD node projects/web/server.js
