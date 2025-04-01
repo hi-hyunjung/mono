@@ -17,6 +17,11 @@ services:
     container_name: api
     networks:
       - app_net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=PathPrefix(`/api`)"
+      - "traefik.http.routers.api.entrypoints=web"
+      - "traefik.http.services.api.loadbalancer.server.port=3005"
 
   web:
     build:
@@ -36,6 +41,11 @@ services:
       - api
     networks:
       - app_net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.web.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.web.entrypoints=web"
+      - "traefik.http.services.web.loadbalancer.server.port=3003"
 
   # fe:
   #   build:
@@ -51,3 +61,4 @@ services:
 
 networks:
   app_net:
+    external: true
