@@ -6,14 +6,14 @@ services:
       context: ../
       dockerfile: docker/api.Dockerfile
       args:
-        - TURBO_TOKEN=TURBO_TOKEN
+        TURBO_TOKEN: ${TURBO_TOKEN}
     restart: always
     ports:
-      - "3005:3005"
+      - "${API_PORT:-3005}:3005"
     environment:
-      - BASE_URL=http://api:3003
-      - APP_PORT=3005
-      - APP_ADDRESS=api
+      - BASE_URL=${BASE_URL}
+      - APP_PORT=${APP_PORT}
+      - APP_ADDRESS=${APP_ADDRESS}
     container_name: api
     networks:
       - app_net
@@ -22,14 +22,16 @@ services:
     build:
       context: ../
       dockerfile: docker/web.Dockerfile
+      args:
+        TURBO_TOKEN: ${TURBO_TOKEN}
     restart: always
     ports:
-      - "3003:3003"
+      - "${WEB_PORT:-3003}:3003"
     container_name: web
     environment:
-      - NEXT_PUBLIC_API_BASE_URL=http://localhost:3005
-      - NEXT_PUBLIC_MAX_DAYS=90
-      - SESSION_PASSWORD=sessionpasswordsessionpasswordsessionpassword
+      - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}
+      - NEXT_PUBLIC_MAX_DAYS=${NEXT_PUBLIC_MAX_DAYS}
+      - SESSION_PASSWORD=${SESSION_PASSWORD}
     depends_on:
       - api
     networks:
