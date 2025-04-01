@@ -44,7 +44,7 @@ RUN addgroup --system --gid 3000 nodejs
 RUN adduser --system -G nodejs --uid 1000 nextjs -D 
 USER nextjs
 
-COPY --from=installer /app/projects/web/next.config.ts .
+COPY --from=installer /app/projects/web/next.config.mjs .
 COPY --from=installer /app/projects/web/package.json .
 COPY --from=installer /app/projects/web/.env.production ./projects/web/.env.production
 
