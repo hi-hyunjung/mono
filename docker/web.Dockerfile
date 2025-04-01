@@ -31,7 +31,6 @@ COPY .git/ ./.git/
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
 
-COPY --from=builder /app/projects/web/.env.build /app/projects/web/.env.production
 RUN SKIP_ENV_VALIDATION=true pnpm dlx turbo run build --filter=web...
 
 FROM base AS runner
