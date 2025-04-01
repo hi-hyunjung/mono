@@ -10,7 +10,7 @@ RUN turbo prune --scope=web --docker
 
 FROM base AS installer
 
-RUN apk add --no-cache lib6-compat
+RUN apk add --no-cache libc6-compat
 RUN apk --no-cache add --virtual .builds-deps build-base python3
 
 WORKDIR /app
