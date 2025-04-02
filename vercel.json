@@ -1,0 +1,5 @@
+{
+  "root": "projects/web",
+  "buildCommand": "pnpm run build",
+  "outputDirectory": ".next"
+}
