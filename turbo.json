@@ -4,7 +4,14 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "vite-end.d.ts", "!.vite/**", ".next/**", "next-env.d.ts", "!.next/cache/**"]
+      "outputs": [
+        "dist/**",
+        "vite-end.d.ts",
+        "!.vite/**",
+        ".next/**",
+        "next-env.d.ts",
+        "!.next/cache/**"
+      ]
     },
     "dev": {
       "cache": false,
@@ -38,5 +45,17 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "test": {}
-  }
+  },
+  "globalDependencies": ["**/.env"],
+  "globalEnv": [
+    "NODE_ENV",
+    "SESSION_PASSWORD",
+    "NEXT_PUBLIC_API_BASE_URL",
+    "APP_PORT",
+    "BASE_URL",
+    "NEXT_PUBLIC_MAX_DAYS",
+    "SKIP_ENV_VALIDATION",
+    "PORT"
+  ],
+  "globalPassThroughEnv": ["NODE_ENV"]
 }
