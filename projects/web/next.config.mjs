@@ -10,6 +10,8 @@ const nextConfig = {
   output: 'standalone',
   eslint: { ignoreDuringBuilds: true },
   compiler: { removeConsole: process.env.NODE_ENV === 'production' },
+  basePath: '/web',
+  assetPrefix: '/web',
 };
 
 export default nextConfig;

@@ -15,6 +15,6 @@ async function bootstrap() {
 
   // const configService = app.get(ConfigService<ConfigServiceType>);
 
-  await app.listen(process.env.PORT ?? 3003);
+  await app.listen(process.env.PORT ?? 3005, '0.0.0.0');
 }
 void bootstrap();

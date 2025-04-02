@@ -31,7 +31,7 @@ services:
         TURBO_TOKEN: ${TURBO_TOKEN}
     restart: always
     ports:
-      - "${WEB_PORT:-3003}:3003"
+      - "${WEB_PORT:-3000}:3000"
     container_name: web
     environment:
       - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}
@@ -45,7 +45,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.web.rule=PathPrefix(`/web`)"
       - "traefik.http.routers.web.entrypoints=web"
-      - "traefik.http.services.web.loadbalancer.server.port=3003"
+      - "traefik.http.services.web.loadbalancer.server.port=3000"
 
   # fe:
   #   build:
