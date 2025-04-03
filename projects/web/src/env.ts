@@ -7,7 +7,7 @@ export const env = createEnv({
   },
   client: {
     NEXT_PUBLIC_MAX_DAYS: z.coerce.number().default(90),
-    NEXT_PUBLIC_API_BASE_URL: z.string(),
+    NEXT_PUBLIC_API_BASE_URL: z.string().default('localhost'),
   },
   runtimeEnv: {
     NEXT_PUBLIC_MAX_DAYS: process.env.NEXT_PUBLIC_MAX_DAYS,
