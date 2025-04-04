@@ -23,14 +23,17 @@
       "persistent": true
     },
     "api#dev": {
-      "dependsOn": ["api#lint", "^lint"],
+      "dependsOn": ["api#lint", "^lint", "@ufb/shared#build"],
       "cache": false,
       "persistent": true
     },
     "web#dev": {
-      "dependsOn": ["web#lint", "^lint"],
+      "dependsOn": ["web#lint", "^lint", "@ufb/shared#build"],
       "cache": false,
       "persistent": true
+    },
+    "@ufb/shared#build": {
+      "outputs": ["dist/**"]
     },
     "lint": {
       "outputs": ["node_modules/.cache/.eslintcache"]
