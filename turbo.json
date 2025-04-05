@@ -35,6 +35,9 @@
     "@ufb/shared#build": {
       "outputs": ["dist/**"]
     },
+    "@ufb/tailwindcss#build": {
+      "outputs": ["dist/**"]
+    },
     "lint": {
       "outputs": ["node_modules/.cache/.eslintcache"]
     },

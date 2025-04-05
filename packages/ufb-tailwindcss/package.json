@@ -1,0 +1,35 @@
+{
+  "name": "@ufb/tailwindcss",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "node src/build",
+    "build:postcss-base": "postcss --config src/base src/base/*.css --base src --dir dist",
+    "build:prejss-base": "prejss-cli dist/base.css --format commonjs",
+    "build:postcss-utilities": "postcss --config src/utilities src/utilities/*.css --base src --dir dist",
+    "build:prejss-utilities": "prejss-cli dist/utilities.css --format commonjs",
+    "build:postcss-components": "postcss --config src/components src/components/*.css --base src --dir dist",
+    "build:prejss-components": "prejss-cli dist/components.css --format commonjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.5.2",
+  "devDependencies": {
+    "@config/eslint-config": "workspace:^",
+    "@config/prettier-config": "workspace:^",
+    "@tailwindcss/postcss": "^4",
+    "autoprefixer": "^10.4.21",
+    "eslint": "catalog:",
+    "glob": "^11.0.1",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.0",
+    "postcss-nesting": "^13.0.1",
+    "prejss-cli": "^0.3.3",
+    "prettier": "catalog:",
+    "tailwindcss": "^3.4.3"
+  }
+}
