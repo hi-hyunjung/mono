@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  form {
+    @apply flex flex-col gap-4;
+  }
+}
+
+@layer components {
+  .table-loading {
+    position: relative;
+    overflow: hidden;
+    @apply bg-tint-blue-bold;
+  }
+
+  .table-loading::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(233, 233, 233, 1) 0,
+      rgba(233, 233, 233, 0.9) 50%,
+      rgba(233, 233, 233, 0.8) 100%
+    );
+    animation: table-loading 1s ease-out infinite;
+    content: '';
+  }
+  .dialog-content {
+    @apply max-w-[504px];
+  }
+}
+
+.setting-action-buttons .button {
+  @apply min-w-[120px];
+}
+.create-template-footer .button {
+  @apply min-w-[120px];
+}
+
+.dialog-footer button {
+  @apply min-w-[84px];
+}
+
+.sheet-footer button {
+  @apply min-w-[84px];
+}
+
+@keyframes table-loading {
+  100% {
+    transform: translateX(0%);
+    opacity: 0;
+  }
+}
+
+body {
+  @apply text-base-normal bg-primary min-w-[1280px];
+}
+
+a {
+  cursor: pointer;
+}
+
+th {
+  position: relative;
+}
+/* button {
+  width: fit-content;
+} */
+/* Table resizing */
+.resizer {
+  position: absolute;
+  right: 0;
+  cursor: col-resize;
+  user-select: none;
+  touch-action: none;
+  width: 4px;
+  height: 100%;
+  top: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--fg-neutral-tertiary);
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.main-swiper {
+  height: 400px;
+  width: 464px;
+  @apply bg-neutral-tertiary;
+}
+
+.thumbnail-swiper {
+  width: 464px;
+  height: 40px;
+}
+
+.thumbnail-swiper .swiper-slide {
+  width: 70px;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.thumbnail-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  --swiper-navigation-size: 12px;
+  @apply button button-small button-radius-large button-outline !bg-neutral-primary;
+}
